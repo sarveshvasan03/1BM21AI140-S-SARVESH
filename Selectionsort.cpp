@@ -13,8 +13,7 @@ void selectionSort(int arr[], int n)
                 min_idx = j;
         }
  
-        // Swap the found minimum element
-        // with the first element
+
         if (min_idx != i)
             swap(arr[min_idx], arr[i]);
     }
@@ -34,7 +33,6 @@ int main()
     int arr[] = { 64, 25, 12, 22, 11 };
     int n = sizeof(arr) / sizeof(arr[0]);
  
-    // Function Call
     selectionSort(arr, n);
     cout << "Sorted array: \n";
     printArray(arr, n);
