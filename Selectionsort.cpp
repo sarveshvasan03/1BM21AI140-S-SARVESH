@@ -1,40 +1,51 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include <iostream>
 
-void selectionSort(int arr[], int n)
-{
-    int i, j, min_idx;
+class SelectionSort {
+private:
+    int* arr;
+    int size;
 
-    for (i = 0; i < n - 1; i++) {
+public:
+    SelectionSort(int* array, int arraySize) {
+        arr = array;
+        size = arraySize;
+    }
 
-        min_idx = i;
-        for (j = i + 1; j < n; j++) {
-            if (arr[j] < arr[min_idx])
-                min_idx = j;
+    void sort() {
+        for (int i = 0; i < size - 1; ++i) {
+            int minIndex = i;
+
+            for (int j = i + 1; j < size; ++j) {
+                if (arr[j] < arr[minIndex]) {
+                    minIndex = j;
+                }
+            }
+
+            if (minIndex != i) {
+                swap(arr[i], arr[minIndex]);
+            }
         }
- 
-
-        if (min_idx != i)
-            swap(arr[min_idx], arr[i]);
     }
-}
 
-void printArray(int arr[], int size)
-{
-    int i;
-    for (i = 0; i < size; i++) {
-        cout << arr[i] << " ";
-        cout << endl;
+    void display() {
+        for (int i = 0; i < size; ++i) {
+            std::cout << arr[i] << " ";
+        }
+        std::cout << std::endl;
     }
-}
+};
 
-int main()
-{
+int main() {
     int arr[] = { 64, 25, 12, 22, 11 };
-    int n = sizeof(arr) / sizeof(arr[0]);
- 
-    selectionSort(arr, n);
-    cout << "Sorted array: \n";
-    printArray(arr, n);
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    SelectionSort selectionSort(arr, size);
+    std::cout << "Original array: ";
+    selectionSort.display();
+
+    selectionSort.sort();
+    std::cout << "Sorted array: ";
+    selectionSort.display();
+
     return 0;
 }
