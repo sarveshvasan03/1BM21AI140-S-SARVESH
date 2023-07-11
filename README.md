@@ -7,7 +7,8 @@ Selection sort
 
 Quick sort
 
-![image](https://github.com/sarveshvasan03/1BM21AI140-S-SARVESH/assets/136417300/020704b0-55e4-4f7f-81b3-453f19d1eb6c)
+![image](https://github.com/sarveshvasan03/1BM21AI140-S-SARVESH/assets/136417300/6704298b-8f60-4c3e-9870-01c9df6b570f)
+
 
 Linear search
 
