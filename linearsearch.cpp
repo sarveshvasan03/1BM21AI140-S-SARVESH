@@ -1,33 +1,43 @@
 #include <iostream>
-#include <ctime>
-using namespace std;
 
-int search(int arr[], int N, int x)
-{
-    int flag=-1;
-    clockid_t time_req;
-	time_req = clock();
-    for (int i = 0; i < N; i++){
-        if (arr[i] == x)
-            flag=i;
+class LinearSearch {
+private:
+    int *arr;
+    int size;
+
+public:
+    LinearSearch(int *array, int arraySize) {
+        arr = array;
+        size = arraySize;
     }
-    time_req = clock() - time_req;
-	cout << "The Operation took " << (double)time_req/CLOCKS_PER_SEC << " seconds" << endl;
 
-    return flag;
-}
+    int search(int key) {
+        for (int i = 0; i < size; i++) {
+            if (arr[i] == key) {
+                return i;  // Return the index where the key is found
+            }
+        }
+        return -1;  // Return -1 if the key is not found
+    }
+};
 
-int main(void)
-{
-    int arr[] = { 2, 3, 4, 10, 40,50,90,100,110,5,1,99 };
-    int x = 99;
-    int N = sizeof(arr) / sizeof(arr[0]);
+int main() {
+    int array[] = {10, 20, 30, 40, 50};
+    int arraySize = sizeof(array) / sizeof(array[0]);
 
-    // Function call
-    int result = search(arr, N, x);
-    (result == -1)
-        ? cout << "Element is not present in array"
-        : cout << "Element is present at index " << result;
+    LinearSearch linearSearch(array, arraySize);
+
+    int key;
+    std::cout << "Enter the key to search: ";
+    std::cin >> key;
+
+    int index = linearSearch.search(key);
+
+    if (index != -1) {
+        std::cout << "Key found at index: " << index << std::endl;
+    } else {
+        std::cout << "Key not found." << std::endl;
+    }
 
     return 0;
 }
