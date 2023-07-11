@@ -5,3 +5,5 @@ Selection sort
 Quick sort
 ![image](https://github.com/sarveshvasan03/1BM21AI140-S-SARVESH/assets/136417300/020704b0-55e4-4f7f-81b3-453f19d1eb6c)
 Linear search
+![image](https://github.com/sarveshvasan03/1BM21AI140-S-SARVESH/assets/136417300/39768cc6-fc81-48a9-8420-622771877c2b)
+Binary search
