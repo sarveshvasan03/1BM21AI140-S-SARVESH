@@ -1,40 +1,84 @@
-
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
-int partition(int arr[], int low, int high)
+class QuickSort
 {
-	int pivot = arr[high];
+    int n, a[100];
 
-	int i = (low - 1);
-
-	for (int j = low; j <= high - 1; j++) {
-
-		if (arr[j] < pivot) {
-
-			i++;
-			swap(arr[i], arr[j]);
-		}
-	}
-	swap(arr[i + 1], arr[high]);
-	return (i + 1);
+public:
+    void Run();
+    void swap(int &, int &);
+    void print(int[], int);
+    int partition(int[], int, int);
+    void quicksort(int[], int, int);
+};
+void QuickSort::Run()
+{
+    cout << "\n Enter the size of the array:";
+    cin >> n;
+    cout << "\n Now Enter the element of the Array:";
+    for (int i = 0; i < n; i++)
+    {
+        cin >> a[i];
+    }
+    a[n + 1] = 1000;
+    quicksort(a, 0, n + 1);
+    print(a, n);
 }
-void quickSort(int arr[], int low, int high)
+void QuickSort::swap(int &a, int &b)
 {
-	if (low < high) {
+    int temp = a;
+    a = b;
+    b = temp;
+}
 
-		int pi = partition(arr, low, high);
+void QuickSort::print(int a[], int size)
+{
+    cout << "\n This is the array:";
+    for (int i = 0; i < size; i++)
+    {
+        cout << a[i] << " ";
+    }
+    cout << endl;
+}
 
-		quickSort(arr, low, pi - 1);
-		quickSort(arr, pi + 1, high);
-	}
+int QuickSort::partition(int a[], int l, int h)
+{
+    int pivot = a[l];
+    int i = l, j = h;
+    while (i < j)
+    {
+        do
+        {
+            i++;
+        } while (a[i] <= pivot);
+
+        do
+        {
+            j--;
+
+        } while (a[j] > pivot);
+        if (i < j)
+        {
+            swap(a[i], a[j]);
+        }
+    }
+
+    swap(a[l], a[j]);
+
+    return j;
+}
+void QuickSort::quicksort(int a[], int l, int h)
+{
+    if (l < h)
+    {
+        int q = partition(a, l, h);
+        quicksort(a, l, q);
+        quicksort(a, q + 1, h);
+    }
 }
 int main()
 {
-	int arr[] = { 10, 7, 8, 9, 1, 5 };
-	int N = sizeof(arr) / sizeof(arr[0]);
-	quickSort(arr, 0, N - 1);
-	cout << "Sorted array: " << endl;
-	for (int i = 0; i < N; i++)
-		cout << arr[i] << " ";
-	return 0;
+    QuickSort q;
+    q.Run();
+    return 0;
 }
