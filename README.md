@@ -14,3 +14,7 @@ Linear search
 ![image](https://github.com/sarveshvasan03/1BM21AI140-S-SARVESH/assets/136417300/39768cc6-fc81-48a9-8420-622771877c2b)
 
 Binary search
+
+![image](https://github.com/sarveshvasan03/1BM21AI140-S-SARVESH/assets/136417300/fcbc7f0e-1bda-465b-be65-13c3f8e8a011)
+
+Selection sort
